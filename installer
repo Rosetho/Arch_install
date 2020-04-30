@@ -3,9 +3,9 @@
 #timedatectl set-ntp true
 #pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
 #genfstab -U /mnt>>/mnt/etc/fstab
+#cp hosts changeroot /mnt/root
 
-arch-chroot /mnt ~/changeroot
-
+#arch-chroot /mnt ~/changeroot
 
 #grub-install --target=i386-pc /dev/sda
 #grub-mkconfig -o /boot/grub/grub.cfg
