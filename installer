@@ -1,21 +1,11 @@
-#you have already connected to the internet 
+#you have already connected to the internet
 #partitioned and mount the disks for the fstab
-timedatectl set-ntp true
-pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
-genfstab -U /mnt>>/mnt/etc/fstab
+#timedatectl set-ntp true
+#pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
+#genfstab -U /mnt>>/mnt/etc/fstab
 
-arch-chroot /mnt
-ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
-hwclock --systohc
-
-#uncomment locale.conf
-sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-locale-gen
-
-echo "arch-basic">>/etc/hostname
-cat hosts >> /etc/hosts
-grub-install --target=i386-pc /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt ~/changeroot
 
 
-
+#grub-install --target=i386-pc /dev/sda
+#grub-mkconfig -o /boot/grub/grub.cfg
