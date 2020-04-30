@@ -1,8 +1,19 @@
-#ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
-#hwclock --systohc
-#sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
-#locale-gen
-#echo "arch-basic">>/etc/hostname
-#cat hosts >> /etc/hosts
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+hwclock --systohc
+sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+locale-gen
+echo "arch-basic">>/etc/hostname
+cat hosts >> /etc/hosts
+
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+rm hosts changeroot
+systemctl enable NetworkManager
+
+#useradd -m mom
+#passwd mom
+
+pacman -Sy alsa-utils xorg-xinit xorg-server git go make nitrogen termite
+git clone https://github.com/Rosetho/dwm.git
+
+#sed for sudoers.

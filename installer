@@ -1,8 +1,10 @@
 #you have already connected to the internet
 #partitioned and mount the disks for the fstab
-#timedatectl set-ntp true
-#pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
-#genfstab -U /mnt>>/mnt/etc/fstab
-#cp hosts changeroot /mnt/root
-#####
+timedatectl set-ntp true
+pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
+genfstab -U /mnt>>/mnt/etc/fstab
+cp hosts changeroot /mnt/root
+##### into changeroot
 arch-chroot /mnt ~/changeroot
+
+#.bashrc or /etc/profile should be copied or made
