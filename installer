@@ -8,3 +8,4 @@ cp hosts changeroot /mnt/root
 arch-chroot /mnt ~/changeroot
 
 #.bashrc or /etc/profile should be copied or made
+#

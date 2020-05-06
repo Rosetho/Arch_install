@@ -13,7 +13,7 @@ systemctl enable NetworkManager
 #useradd -m mom
 #passwd mom
 
-pacman -Sy alsa-utils xorg-xinit xorg-server git go make nitrogen termite
+pacman -Sy alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
 git clone https://github.com/Rosetho/dwm.git
 
 #sed for sudoers.
