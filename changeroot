@@ -16,12 +16,12 @@ passwd mom
 
 echo "startx" >> /etc/profile
 
-pacman -Sy --noconfirm dmenu chromium picom alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
-git clone https://github.com/Rosetho/dwm.git /home/mom
+pacman -Sy --noconfirm firefox dmenu chromium picom alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
+git clone https://github.com/Rosetho/dwm.git /home/mom/dwm
 cd /home/mom/dwm
 make clean install
 cd
 
 
-#sed for sudoers.
-
+# sudoers.
+echo "mom ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

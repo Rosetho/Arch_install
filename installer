@@ -13,7 +13,8 @@ read -p "changing root ->"
 ##### into changeroot
 arch-chroot /mnt ~/changeroot
 
-cp toHome/* /mnt/home/mom
+cp .bashrc .xinitrc /mnt/home/mom
 
-#.bashrc or /etc/profile should be copied or made
-#
+###NEXT
+#/usr/local/bin programs for xsetroot
+#/etc/xdg/termite config for transparency
