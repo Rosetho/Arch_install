@@ -4,16 +4,24 @@ sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 echo "arch-basic">>/etc/hostname
 cat hosts >> /etc/hosts
-
+read -p "Installing grub ->"
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
-rm hosts changeroot
+
 systemctl enable NetworkManager
 
-#useradd -m mom
-#passwd mom
+echo "User passwd"
+useradd -m mom
+passwd mom
 
-pacman -Sy alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
-git clone https://github.com/Rosetho/dwm.git
+echo "startx" >> /etc/profile
+
+pacman -Sy --noconfirm dmenu chromium picom alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
+git clone https://github.com/Rosetho/dwm.git /home/mom
+cd /home/mom/dwm
+make clean install
+cd
+
 
 #sed for sudoers.
+
