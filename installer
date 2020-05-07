@@ -1,18 +1,28 @@
+#BEFORE YOU BEGIN
 #you have already connected to the internet
 #partitioned and mount the disks for the fstab
+
 echo "root passwd"
 passwd
+
+#set clock
 timedatectl set-ntp true
+
+#install base packages
 pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
+
+#create fstab
 genfstab -U /mnt>>/mnt/etc/fstab
 
+#copy files we need in the new filesystem
 cp hosts changeroot /mnt/root
 mkdir /mnt/usr/share/wallpaper
 cp Scenery_in_Plateau_by_Arto_Marttinen.jpg /mnt/usr/share/wallpaper
-read -p "changing root ->"
-##### into changeroot
+
+read -p "Let's change root ->"
 arch-chroot /mnt ~/changeroot
 
+#copy important config and dotfiles 
 cp .bashrc .xinitrc /mnt/home/mom
 
 ###NEXT

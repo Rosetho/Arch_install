@@ -1,27 +1,38 @@
+#timezone and locale config
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 hwclock --systohc
 sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
+
+#host info
 echo "arch-basic">>/etc/hostname
 cat hosts >> /etc/hosts
-read -p "Installing grub ->"
+
+read -p "Shall we installing grub? ->"
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
+#enable network on start up
 systemctl enable NetworkManager
 
 echo "User passwd"
 useradd -m mom
 passwd mom
 
+#auto start desktop, but we should write our own /etc/profile
 echo "startx" >> /etc/profile
 
+#install extra packages
 pacman -Sy --noconfirm firefox dmenu chromium picom alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
+
+#get .local/bin
+git clone https://github.com/Rosetho/dwm.git /home/mom/.local/bin
+
+#compile my build of dwm
 git clone https://github.com/Rosetho/dwm.git /home/mom/dwm
 cd /home/mom/dwm
 make clean install
 cd
 
-
-# sudoers.
+# sudo priviledges to new user
 echo "mom ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
