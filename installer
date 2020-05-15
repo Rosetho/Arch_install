@@ -11,10 +11,12 @@ timedatectl set-ntp true
 #install base packages
 pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
 
-read -p "Continue?"
+
+read -p "Continue beyond base package install?"
+echo "fstab generation..."
 genfstab -U /mnt>>/mnt/etc/fstab
 
-#copy files we need in the new filesystem
+echo "copying files we need in the new filesystem.."
 cp hosts changeroot /mnt/root
 mkdir /mnt/usr/share/wallpaper
 cp Scenery_in_Plateau_by_Arto_Marttinen.jpg /mnt/usr/share/wallpaper

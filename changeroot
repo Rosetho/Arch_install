@@ -6,6 +6,7 @@ locale-gen
 
 echo "host info->"
 echo "arch-basic">>/etc/hostname
+touch /etc/hosts
 cat hosts >> /etc/hosts
 
 read -p "Shall we installing/config grub on sda?"
@@ -26,11 +27,11 @@ read -p "You're about to install the extra packages"
 pacman -Sy --noconfirm firefox dmenu chromium picom alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
 
 read -p "Clone your desktop?"
-git clone https://github.com/Rosetho/dwm.git /home/mom/.local/bin
-git clone https://github.com/Rosetho/dwm.git /home/mom/dwm
-cd /home/mom/dwm
+git clone https://github.com/Rosetho/dwm.git /home/tom/.local/bin
+git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
+cd /home/tom/dwm
 make clean install
 cd
 read -p "We're going to set root priveliges to you, new user, then leave changeroot env"
 # sudo priviledges to new user
-echo "mom ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo "tom ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
