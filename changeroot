@@ -8,7 +8,6 @@ locale-gen
 
 echo "host info->"
 echo "arch-basic">>/etc/hostname
-# im moving this ti installer becuase it never works. cat hosts >> /etc/hosts
 
 read -p "Shall we installing/config grub on sda?"
 grub-install --target=i386-pc /dev/sda
@@ -22,13 +21,13 @@ useradd -m tom
 passwd tom
 
 #auto start desktop, but we should write our own /etc/profile
-echo "startx" >> /etc/profile
+#echo "startx" >> /etc/profile
 
 read -p "You're about to install the extra packages"
 pacman -Sy --noconfirm firefox dmenu chromium picom alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
 
 read -p "Clone your desktop?"
-git clone https://github.com/Rosetho/dwm.git /home/tom/.local/bin
+#git clone https://github.com/Rosetho/bin.git /home/tom/.local/bin
 git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
 cd /home/tom/dwm
 make clean install

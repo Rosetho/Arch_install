@@ -9,7 +9,7 @@ echo "fstab generation..."
 genfstab -U /mnt>>/mnt/etc/fstab
 
 echo "copying files we need in the new filesystem.."
-cp hosts changeroot /mnt/root
+cp changeroot /mnt/root
 mkdir /mnt/usr/share/wallpaper
 cp Scenery_in_Plateau_by_Arto_Marttinen.jpg /mnt/usr/share/wallpaper
 #-------------------------------
@@ -19,6 +19,7 @@ arch-chroot /mnt ~/changeroot
 #copy important config and dotfiles 
 cp .bashrc .xinitrc /mnt/home/tom
 cat hosts >> /mnt/etc/hosts ##check this
+cp profile /mnt/etc/profile
 echo "That's all folks"
 ###NEXT
 #/usr/local/bin programs for xsetroot
