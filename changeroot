@@ -1,3 +1,5 @@
+echo "Root user password"
+passwd
 echo "timezone and locale config ->"
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 hwclock --systohc
@@ -6,8 +8,7 @@ locale-gen
 
 echo "host info->"
 echo "arch-basic">>/etc/hostname
-touch /etc/hosts
-cat hosts >> /etc/hosts
+# im moving this ti installer becuase it never works. cat hosts >> /etc/hosts
 
 read -p "Shall we installing/config grub on sda?"
 grub-install --target=i386-pc /dev/sda
@@ -16,7 +17,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 echo "Enable network on start up->"
 systemctl enable NetworkManager
 
-echo "User passwd"
+echo "Type Password Again"
 useradd -m tom
 passwd tom
 
