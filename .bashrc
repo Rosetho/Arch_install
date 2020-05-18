@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-alias vdwm='vim /home/tom/suck/dwm/config.h
-alias idwm='cd /home/tom/suck/dwm & sudo make clean install
+alias vdwm='vim /home/tom/suck/dwm/config.h'
+alias idwm='cd /home/tom/suck/dwm && sudo make clean install'
 alias ls='ls --color=auto'
 PS1='\e[1;32m\u\e[0m@\e[1;31m\h \e[35m\w \e[1;33m\$\e[0m '
 echo ".bashrc"
@@ -14,6 +14,6 @@ alias la='ls -la'
 alias l='ls -l'
 alias df='df -h'
 alias du='du -h'
-
+alias dud='du -d 1|sort -h'
 
 
