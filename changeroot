@@ -3,10 +3,10 @@ grub_installer () {
           if [ $type == "bios" ]
           then
                   read -p "Where? (ex. /dev/sda, BE SURE ABOUT THIS): " path
-                  echo "grub-install --target-i386-pc $path"
+                  grub-install --target-i386-pc $path
           elif [ $type == "efi" ]
           then
-                  echo "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader    -id=GRUB"
+                  grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
           fi
   echo "grub-mkconfig -o /boot/grub/grub.cfg"
   }
