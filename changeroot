@@ -1,27 +1,39 @@
+grub_installer () {
+          read -p "bios or efi? " type
+          if [ $type == "bios" ]
+          then
+                  read -p "Where? (ex. /dev/sda, BE SURE ABOUT THIS): " path
+                  echo "grub-install --target-i386-pc $path"
+          elif [ $type == "efi" ]
+          then
+                  echo "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader    -id=GRUB"
+          fi
+  echo "grub-mkconfig -o /boot/grub/grub.cfg"
+  }
+
+#set root passwd
 echo "Root user password"
 passwd
+
 echo "timezone and locale config ->"
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 hwclock --systohc
 sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
-
 echo "host info->"
 echo "arch-basic">>/etc/hostname
 
-read -p "Shall we installing/config grub on sda?"
-grub-install --target=i386-pc /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg
+#Bootloader
+read -p "Intsall Grub?(y/n) " yn
+if [ $yn == "y" ]; then grub_installer
+fi
 
 echo "Enable network on start up->"
 systemctl enable NetworkManager
 
-echo "Type Password Again"
-useradd -m tom
-passwd tom
-
-#auto start desktop, but we should write our own /etc/profile
-#echo "startx" >> /etc/profile
+read -p "Enter User Name: " user
+useradd -m $user
+passwd $user
 
 read -p "You're about to install the extra packages"
 pacman -Sy --noconfirm firefox dmenu chromium picom alsa-utils xorg-xsetroot xorg-xinit xorg-server git go make nitrogen termite
@@ -33,5 +45,4 @@ cd /home/tom/dwm
 make clean install
 cd
 read -p "We're going to set root priveliges to you, new user, then leave changeroot env"
-# sudo priviledges to new user
 echo "tom ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

@@ -4,7 +4,7 @@ timedatectl set-ntp true
 #install base packages
 pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
 
-read -p "Continue beyond base package install?"
+read -p "Continue beyond base package install? "
 echo "fstab generation..."
 genfstab -U /mnt>>/mnt/etc/fstab
 
