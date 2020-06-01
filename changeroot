@@ -3,7 +3,7 @@ grub_installer () {
           if [ $type == "bios" ]
           then
                   read -p "Where? (ex. /dev/sda, BE SURE ABOUT THIS): " path
-                  grub-install --target-i386-pc $path
+                  grub-install --target=i386-pc $path
           elif [ $type == "efi" ]
           then
                   grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB

@@ -2,7 +2,7 @@
 timedatectl set-ntp true
 
 #install base packages
-pacstrap /mnt base linux linux-firmware git base-devel networkmanager vim grub
+pacstrap /mnt base linux linux-firmware base-devel networkmanager vim grub
 
 read -p "Continue beyond base package install? "
 echo "fstab generation..."
@@ -23,4 +23,8 @@ cp profile /mnt/etc/profile
 echo "That's all folks"
 ###NEXT
 #/usr/local/bin programs for xsetroot
+#brave browser
+#yay
+#no battery, no indicator
+#cmd network manager
 #/etc/xdg/termite config for transparency
