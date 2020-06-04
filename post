@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd
+git clone https://aur.archlinux.org/yay.git
+git clone https://github.com/Rosetho/bin.git /home/tom/.local/bin
