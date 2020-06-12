@@ -39,11 +39,6 @@ passwd $user
 #sudo priviledges
 echo "$user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-read -p "Clone your desktop?"
-git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
-cd /home/tom/dwm
-make clean install
-
 read -p "You're about to install the extra packages"
 pacman -Sy --noconfirm vim picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen termite
 

@@ -19,10 +19,10 @@ arch-chroot /mnt ~/changeroot
 #-------------------------------
 
 #copy important config and dotfiles 
-cp .bashrc .xinitrc /mnt/home/tom
+cp .bashrc .xinitrc /mnt/home/tom #will be an error if user is not named tom
 cat hosts >> /mnt/etc/hosts 
 cp profile /mnt/etc/profile
-
+cp post /mnt/root
 echo "That's all folks"
 
 ###NEXT

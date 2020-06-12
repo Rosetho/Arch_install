@@ -3,3 +3,6 @@
 cd
 git clone https://aur.archlinux.org/yay.git
 git clone https://github.com/Rosetho/bin.git /home/tom/.local/bin
+git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
+cd /home/tom/dwm
+make clean install
