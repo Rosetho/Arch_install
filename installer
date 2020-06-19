@@ -1,8 +1,10 @@
+#!/bin/sh
+
 #sync time
 timedatectl set-ntp true
 
 #install base packages
-pacstrap /mnt base linux linux-firmware base-devel networkmanager grub
+pacstrap /mnt base linux linux-firmware base-devel vim networkmanager grub
 
 read -p "Continue beyond base package install? "
 echo "fstab generation..."
@@ -19,7 +21,9 @@ arch-chroot /mnt ~/changeroot
 #-------------------------------
 
 #copy important config and dotfiles 
+#########FIX
 cp .bashrc .xinitrc /mnt/home/tom #will be an error if user is not named tom
+#########^FIX
 cat hosts >> /mnt/etc/hosts 
 cp profile /mnt/etc/profile
 cp post /mnt/root
