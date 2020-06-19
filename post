@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo pacman -Sy --noconfirm picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen termite
+
 cd
 git clone https://aur.archlinux.org/yay.git
 git clone https://github.com/Rosetho/bin.git /home/tom/.local/bin
