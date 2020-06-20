@@ -1,10 +1,20 @@
 #!/bin/sh
-
-sudo pacman -Sy --noconfirm picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen termite
-
+#Run as your user, not root
 cd
+
+sudo pacman -Sy --noconfirm picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen termite redshift arandr
+
 git clone https://aur.archlinux.org/yay.git
-git clone https://github.com/Rosetho/bin.git /home/tom/.local/bin
+cd yay; makepkg PKGBUILD
+./src/yay-10.0.1/yay -S brave-bin pacman-mirrorup
+
+#DWM
 git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
 cd /home/tom/dwm
-make clean install
+sudo make clean install
+startx 
+
+#Shell Programs (mostly needed for DWM)
+mkdir ~/.local/bin
+git clone https://github.com/Rosetho/bin.git /home/tom/.local/bin
+
