@@ -28,11 +28,6 @@ echo "arch-basic">>/etc/hostname
 echo "Enable network on start up->"
 systemctl enable NetworkManager
 
-#Bootloader
-read -p "Intsall Grub?(y/n) " yn
-if [ $yn == "y" ]; then grub_installer
-fi
-
 read -p "Enter User Name: " user
 useradd -m $user
 passwd $user
@@ -40,4 +35,8 @@ passwd $user
 #sudo priviledges
 echo "$user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+#Bootloader
+read -p "Intsall Grub?(y/n) " yn
+if [ $yn == "y" ]; then grub_installer
+fi
 

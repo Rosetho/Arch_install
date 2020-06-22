@@ -22,16 +22,13 @@ arch-chroot /mnt ~/changeroot
 
 #copy important config and dotfiles 
 #########FIX
-cp .bashrc .xinitrc /mnt/home/tom #will be an error if user is not named tom
+cp post /home/tom
+cd configs
+cp .Xresources .bashrc .xinitrc /mnt/home/tom 
+#will be an error if user is not named tom
 #########^FIX
 cat hosts >> /mnt/etc/hosts 
 cp profile /mnt/etc/profile
-cp post /mnt/root
+
 echo "That's all folks"
 
-###NEXT
-#/usr/local/bin programs for xsetroot
-#brave browser
-#yay
-#no battery, no indicator
-#/etc/xdg/termite config for transparency
