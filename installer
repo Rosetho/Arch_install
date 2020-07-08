@@ -21,14 +21,10 @@ arch-chroot /mnt ~/changeroot
 #-------------------------------
 
 #copy important config and dotfiles 
-#########FIX
 cp post /home/tom
 cd configs
 cp .Xresources .bashrc .xinitrc /mnt/home/tom 
-#will be an error if user is not named tom
-#########^FIX
+
 cat hosts >> /mnt/etc/hosts 
 cp profile /mnt/etc/profile
-
-echo "That's all folks"
-
+echo "complete"
