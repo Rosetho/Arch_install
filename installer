@@ -6,23 +6,18 @@ timedatectl set-ntp true
 #install base packages
 pacstrap /mnt base linux linux-firmware base-devel vim networkmanager grub
 
-read -p "Continue beyond base package install? "
-echo "fstab generation..."
+read -p "Continue beyond base package install... "
 genfstab -U /mnt>>/mnt/etc/fstab
-
-echo "copying files we need in the new filesystem.."
-cp changeroot /mnt/root
+cp -v changeroot /mnt/root
 mkdir /mnt/usr/share/wallpaper
-cp Scenery_in_Plateau_by_Arto_Marttinen.jpg /mnt/usr/share/wallpaper
+cp -v Scenery_in_Plateau_by_Arto_Marttinen.jpg /mnt/usr/share/wallpaper
 
 #-------------------------------
 read -p "Let's change root?"
 arch-chroot /mnt ~/changeroot
 #-------------------------------
 
-#copy important config and dotfiles 
-cp -v  post configs/bookmarks* /mnt/home/tom
-
-cat hosts >> /mnt/etc/hosts 
-cp profile /mnt/etc/profile
+cp -v post homeconf/* /mnt/home/tom
+cp -v hosts /mnt/etc/hosts
+cp -v profile /mnt/etc/profile
 echo "complete"
