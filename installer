@@ -21,9 +21,7 @@ arch-chroot /mnt ~/changeroot
 #-------------------------------
 
 #copy important config and dotfiles 
-cp post /home/tom
-cd configs
-cp .Xresources .bashrc .xinitrc /mnt/home/tom 
+cp -v  post configs/bookmarks* /mnt/home/tom
 
 cat hosts >> /mnt/etc/hosts 
 cp profile /mnt/etc/profile
