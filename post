@@ -1,8 +1,8 @@
 #!/bin/sh
 #Run as your user, not root
 #------------------------
-#Rest of the packages
-sudo pacman -Sy --noconfirm picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen urxvt-unicode termite redshift arandr
+#Rest of the packages. two terminals to be safe
+sudo pacman -Sy --noconfirm ranger picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen urxvt-unicode termite redshift arandr
 
 #YAY
 cd
