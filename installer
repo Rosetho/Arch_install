@@ -17,7 +17,7 @@ read -p "Let's change root?"
 arch-chroot /mnt ~/changeroot
 #-------------------------------
 
-cp -v post homeconf/* /mnt/home/tom
+cp -v post homeconf/* homeconf/.* /mnt/home/tom
 cp -v hosts /mnt/etc/hosts
 cp -v profile /mnt/etc/profile
 echo "complete"

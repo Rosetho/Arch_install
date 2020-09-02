@@ -1,6 +1,4 @@
 # /etc/profile
-echo "/etc/profile...."
-#Set our umask
 umask 022
 
 # Append our default paths
@@ -17,8 +15,6 @@ appendpath '/usr/bin'
 appendpath '/home/tom/.local/bin'
 unset appendpath
 export PATH
-
-source /home/tom/.bashrc
 
 # Termcap is outdated, old, and crusty, kill it.
 unset TERMCAP
