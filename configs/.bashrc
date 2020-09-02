@@ -12,7 +12,7 @@ alias la='ls -la'
 alias l='ls -l'
 alias df='df -h -x devtmpfs -x tmpfs'
 alias du='du -h'
-alias dud='du -d 1|sort -h'
+#alias dud='du -d 1|sort -h'
 alias grupdate='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias gs="git status"
 
