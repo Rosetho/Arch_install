@@ -12,7 +12,7 @@ makepkg -i
 
 #DWM
 git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
-sudo make clean install /home/tom/dwm
+cd /home/tom/dwm && sudo make clean install 
 cd;startx
 
 mkdir ~/.local/bin
