@@ -8,7 +8,7 @@ sudo pacman -Sy --noconfirm picom alsa-utils make go dmenu xorg-xsetroot xorg-xi
 cd
 git clone https://aur.archlinux.org/yay.git
 cd yay; makepkg PKGBUILD
-./src/yay-10.0.1/yay -S brave-bin pacman-mirrorup
+./src/yay-10.0.1/yay -S brave-bin pacman-mirrorup gqview ffmpeg-compat-57 epson-inkjet-printer-escpr dashbinsh abeep-git urxvt-resize-font-git
 
 #DWM
 git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
