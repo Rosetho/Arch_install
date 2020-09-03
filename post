@@ -15,6 +15,7 @@ git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
 cd /home/tom/dwm && sudo make clean install 
 cd;startx
 
+nitrogen --set-scaled /usr/share/wallpaper/Scenery_in_Plateau_by_Arto_Marttinen.jpg
 mkdir ~/.local/bin
 git clone https://github.com/Rosetho/bin.git /home/tom/.local/bin
 xrdb ~/.Xresources
