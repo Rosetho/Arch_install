@@ -2,13 +2,13 @@
 #Run as your user, not root
 #------------------------
 #Rest of the packages. two terminals to be safe
-sudo pacman -S --noconfirm ranger picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen rxvt-unicode termite redshift arandr
+sudo pacman -S --noconfirm system-config-printer vlc xsane xscreensaver libreoffice-still man-db man-pages noto-fonts-emoji openssh pavucontrol pulseaudio abeep-git audacious easytag epdfview gqview ktorrent ranger picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen rxvt-unicode termite redshift arandr
 
 #YAY do for each package instead of all at once. 
 git clone https://aur.archlinux.org/yay.git /home/tom/yay
 cd /home/tom/yay
 makepkg -i 
-#yay -S brave-bin pacman-mirrorup gqview ffmpeg-compat-57 epson-inkjet-printer-escpr dashbinsh abeep-git urxvt-resize-font-git
+#yay -S spotifyd brave-bin pacman-mirrorup gqview ffmpeg-compat-57 epson-inkjet-printer-escpr dashbinsh abeep-git urxvt-resize-font-git
 
 #DWM
 git clone https://github.com/Rosetho/dwm.git /home/tom/dwm

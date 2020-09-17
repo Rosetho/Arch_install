@@ -4,7 +4,7 @@
 timedatectl set-ntp true
 
 #install base packages
-pacstrap /mnt base linux linux-firmware base-devel vim networkmanager grub
+pacstrap /mnt base efibootmgr linux linux-firmware base-devel vim networkmanager grub
 
 read -p "Continue beyond base package install... "
 genfstab -U /mnt>>/mnt/etc/fstab

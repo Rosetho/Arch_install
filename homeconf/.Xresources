@@ -1,4 +1,4 @@
-URxvt.font: xft:monospace:size=12
+URxvt.font: xft:monospace:size=12, xft:Noto Emoji
 URxvt.perl-ext-common:  ...,resize-font,...
 URxvt.scrollBar: false
 !*.background: #141c21
