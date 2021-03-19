@@ -1,0 +1,13 @@
+#!/bin/sh
+#extra software once desktop is running
+#--------------------------------------
+
+#My bin files
+mkdir ~/.local/bin
+git clone https://github.com/Rosetho/bin.git /home/tom/.local/bin
+xrdb ~/.Xresources
+
+#Download packages one by one from file
+for pac in $(cat packages); do yay -S $pac; done
+
+

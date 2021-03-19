@@ -1,0 +1,16 @@
+#!/bin/sh
+#Run as your user, not root
+#------------------------
+# two terminals to be safe
+sudo pacman -S --noconfirm pulseaudio picom alsa-utils make go dmenu xorg-xsetroot xorg-xinit xorg-server git nitrogen rxvt-unicode termite redshift arandr
+
+#YAY do for each package instead of all at once. 
+git clone https://aur.archlinux.org/yay.git /home/tom/yay
+cd /home/tom/yay
+makepkg -i 
+
+#DWM
+git clone https://github.com/Rosetho/dwm.git /home/tom/dwm
+cd /home/tom/dwm && sudo make clean install 
+cd;startx
+
