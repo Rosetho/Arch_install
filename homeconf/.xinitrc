@@ -1,6 +1,6 @@
 #!/bin/sh
 xrdb ~/.Xresources
 picom &
-dwmstatus &
+dwmblocks &
 nitrogen --restore &
 exec dwm

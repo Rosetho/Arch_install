@@ -9,7 +9,8 @@ grub_installer () {
           then
                   grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
           fi
-	  grub-mkconfig -o /boot/grub/grub.cfg
+	cp -v /home/tom/grub /etc/default/grub 
+	grub-mkconfig -o /boot/grub/grub.cfg
   }
 
 #set root passwd
@@ -22,13 +23,12 @@ hwclock --systohc
 sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 
-echo "host info->"
-echo "arch-basic">>/etc/hostname
+read -p "Enter hostname> " h
+echo "$h">>/etc/hostname
 
-echo "Enable network on start up->"
 systemctl enable NetworkManager
 
-read -p "Enter User Name: " user
+read -p "Enter User Name: (put tom or there will be isues)" user
 useradd -m $user
 passwd $user
 
