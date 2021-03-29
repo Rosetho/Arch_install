@@ -35,6 +35,9 @@ passwd $user
 #sudo priviledges
 echo "$user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+#ignore power key
+sed -i -e 's/#HandlePowerKey=[a-z]*/HandlePowerKey=ignore/' /etc/systemd/logind.conf
+
 #Bootloader
 read -p "Intsall Grub?(y/n) " yn
 if [ $yn == "y" ]; then grub_installer
